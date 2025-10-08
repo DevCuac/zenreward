@@ -1,3 +1,5 @@
+# ZENREWARD | THE BEST REWARDS PLUGIN
+
 Boost your player loyalty with ZenRewards, the definitive rewards system. Allow your users to claim daily, weekly, and unique prizes, and keep them hooked with an addictive Connection Streak system!
 
 ZenRewards is designed to be incredibly flexible and easy to configure. You have total control over the appearance of your menus and the behavior of every single reward. Customize it to your liking and watch your players return day after day to keep their streak alive!
