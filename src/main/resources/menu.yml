@@ -1,0 +1,339 @@
+# Reward menu configuration
+
+# Inventory title
+title: "&8Reward Menu" # No accents
+
+# Number of inventory rows (between 1 and 6)
+rows: 6
+
+# Filler item for empty slots
+filler_item:
+  material: STAINED_GLASS_PANE:15 # 1.8 material for black glass
+  name: " " # Empty name
+  lore: [] # Empty lore
+
+# Definition of items in the menu
+items:
+  daily_reward: # Item identifier
+    slot: 21
+    reward_id: "daily_reward"
+    claimable-item:
+      material: CHEST
+      name: "&fDaily Reward &7(%status%&7)"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7within 24 hours."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6100 Coins"
+        - "&7"
+        - "&eClick to claim!"
+    cooldown-item:
+      material: BEDROCK
+      name: "&fDaily Reward &7(%status%&7)"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7within 24 hours."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6100 Coins"
+        - "&7"
+        - "&7Remaining Time: &e%cooldown_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&cDaily Reward &7(&cNot Available&7)"
+      lore:
+        - "&7You do not have permission"
+        - "&7to claim this reward."
+
+  weekly_reward_item:
+    slot: 22
+    reward_id: "weekly_reward"
+    claimable-item:
+      material: CHEST
+      name: "&fWeekly Reward &7(%status%&7)"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7within 7 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6250 Coins"
+        - "&7"
+        - "&eClick to claim!"
+    cooldown-item:
+      material: BEDROCK
+      name: "&fWeekly Reward &7(%status%&7)"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7within 7 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6250 Coins"
+        - "&7"
+        - "&7Remaining Time: &e%cooldown_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&cWeekly Reward &7(&cNot Available&7)"
+      lore:
+        - "&7You do not have permission"
+        - "&7to claim this reward."
+
+  monthly_reward_item:
+    slot: 23
+    reward_id: "monthly_reward"
+    claimable-item:
+      material: CHEST
+      name: "&fMonthly Reward &7(%status%&7)"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7within 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6500 Coins"
+        - "&7"
+        - "&eClick to claim!"
+    cooldown-item:
+      material: BEDROCK
+      name: "&fMonthly Reward &7(%status%&7)"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7within 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6500 Coins"
+        - "&7"
+        - "&7Remaining Time: &e%cooldown_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&cMonthly Reward &7(&cNot Available&7)"
+      lore:
+        - "&7You do not have permission"
+        - "&7to claim this reward."
+
+  welcome_reward_item:
+    slot: 31
+    reward_id: "welcome_reward"
+    claimable-item:
+      material: SKULL_ITEM:3
+      head-texture-value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmY1NjhkZDgwODIwNjU3NTU0ZjliNDVkYjAzMWQyMmNkOWI3ZDE2MWMxOTgyNzczYjFiMzU4NTRjOTkzOTgyNCJ9fX0="
+      name: "&fWelcome Reward &7(%status%&7)"
+      lore:
+        - "&7You can claim this reward only"
+        - "&7the first time you join the server."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6250 Coins"
+    unique-claimed-item:
+      material: SKULL_ITEM:3
+      head-texture-value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ=="
+      name: "&fWelcome Reward &7(%status%&7)"
+      lore:
+        - "&7You have already claimed this"
+        - "&7welcome reward."
+
+  vip_reward_item:
+    slot: 29
+    reward_id: "vip_reward"
+    claimable-item:
+      material: POTION:0
+      name: "&fMonthly Reward &a[VIP] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &a[VIP]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6250 Coins"
+        - "&7+ &f1 Common Key"
+        - "&7"
+        - "&eClick to claim!"
+    cooldown-item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &a[VIP] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &a[VIP]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6250 Coins"
+        - "&7+ &f1 Common Key"
+        - "&7"
+        - "&7Remaining Time: &e%cooldown_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&cMonthly Reward &a[VIP] &7(&cNot Available&7)"
+      lore:
+        - "&7You do not have permission"
+        - "&7to claim this reward."
+
+  vip_plus_reward_item:
+    slot: 30
+    reward_id: "vip_plus_reward"
+    claimable-item:
+      material: POTION:0
+      name: "&fMonthly Reward &a[VIP&6+&a] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &a[VIP&6+&a]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6500 Coins"
+        - "&7+ &a1 Uncommon Key"
+        - "&7"
+        - "&eClick to claim!"
+    cooldown-item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &a[VIP&6+&a] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &a[VIP&6+&a]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6500 Coins"
+        - "&7+ &a1 Uncommon Key"
+        - "&7"
+        - "&7Remaining Time: &e%cooldown_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&cMonthly Reward &a[VIP&6+&a] &7(&cNot Available&7)"
+      lore:
+        - "&7You do not have permission"
+        - "&7to claim this reward."
+
+  mvp_reward_item:
+    slot: 32
+    reward_id: "mvp_reward"
+    claimable-item:
+      material: POTION:0
+      name: "&fMonthly Reward &b[MVP] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &b[MVP]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6750 Coins"
+        - "&7+ &91 Rare Key"
+        - "&7"
+        - "&eClick to claim!"
+    cooldown-item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &b[MVP] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &b[MVP]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &6750 Coins"
+        - "&7+ &91 Rare Key"
+        - "&7"
+        - "&7Remaining Time: &e%cooldown_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&cMonthly Reward &b[MVP] &7(&cNot Available&7)"
+      lore:
+        - "&7You do not have permission"
+        - "&7to claim this reward."
+
+  mvp_plus_reward_item:
+    slot: 33
+    reward_id: "mvp_plus_reward"
+    claimable-item:
+      material: POTION:0
+      name: "&fMonthly Reward &b[MVP&c+&b] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &b[MVP&c+&b]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&7+ &61000 Coins"
+        - "&7+ &51 Epic Key"
+        - "&7"
+        - "&eClick to claim!"
+    cooldown-item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &b[MVP&c+&b] &7(%status%&7)"
+      lore:
+        - "&7Exclusive reward for rank &b[MVP&c+&b]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&61000 Coins"
+        - "&7+ &51 Epic Key"
+        - "&7"
+        - "&7Remaining Time: &e%cooldown_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&cMonthly Reward &b[MVP&c+&b] &7(&cNot Available&7)"
+      lore:
+        - "&7You do not have permission"
+        - "&7to claim this reward."
+
+  toggle_notifications_item:
+    slot: 48
+    type: "OPTION_TOGGLE_NOTIFICATIONS"
+    permission: "zenrewards.options.notifications"
+    has-permission-item:
+      material: BOOK
+      name: "&eToggle Notifications"
+      lore:
+        - "&7Click to enable or disable"
+        - "&7reward notifications when you log in."
+        - ""
+        - "&eStatus: &f%player_notify_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&eToggle Notifications"
+      lore:
+        - "&cYou do not have permission to use this option."
+
+  toggle_auto_claim_item:
+    slot: 50
+    type: "OPTION_TOGGLE_AUTOCLAIM"
+    permission: "zenrewards.options.autoclaim"
+    has-permission-item:
+      material: CHEST
+      name: "&eToggle Auto-Claim"
+      lore:
+        - "&7Click to turn on or off"
+        - "&7automatic claiming of rewards upon joining."
+        - ""
+        - "&eStatus: &f%player_autoclaim_status%"
+    no-permission-item:
+      material: BARRIER
+      name: "&eToggle Auto-Claim"
+      lore:
+        - "&cThis option is exclusive to VIP ranks."
+
+  close_menu_item:
+    slot: 49
+    material: BARRIER
+    name: "&c&lClose Menu"
+    lore:
+      - "&7Click to exit."
+    commands:
+      - "[close]"
+
+  # Custom item, from here you can create items to decorate your menu as you like
+  hub_item:
+    slot: 45
+    material: ARROW
+    name: "&e&lBack"
+    lore:
+      - "&7Return to the previous menu."
+    commands:
+      - "[player] menu" # Executes the /menu command as if the player typed it

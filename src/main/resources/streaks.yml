@@ -1,0 +1,58 @@
+# Streak reward configuration.
+# The player will receive the reward of the corresponding day in their streak.
+
+# Message sent to the player when claiming a streak reward.
+claim-message: "%prefix%&aYou have claimed your streak reward for day &e{day}&a!"
+
+# List of rewards per day. You can add as many as you want.
+rewards:
+  1: # Day 1
+    commands:
+      - "eco give %player% 100"
+    display:
+      name: "&aDay 1: Iron Reward"
+      lore:
+        - "&7Claimed for logging in 1 day."
+        - "&6+100 Coins"
+  2:
+    commands:
+      - "eco give %player% 150"
+    display:
+      name: "&aDay 2: Small Bonus"
+      lore:
+        - "&7Claimed for logging in 2 consecutive days."
+        - "&6+150 Coins"
+  3:
+    commands:
+      - "eco give %player% 300"
+    display:
+      name: "&6Day 3: Medium Reward"
+      lore:
+        - "&7Claimed for logging in 3 consecutive days."
+        - "&6+300 Coins"
+  4:
+    commands:
+      - "eco give %player% 500"
+    display:
+      name: "&6Day 4: Large Reward"
+      lore:
+        - "&7Claimed for logging in 4 consecutive days."
+        - "&6+500 Coins"
+  5:
+    commands:
+      - "eco give %player% 750"
+    display:
+      name: "&6Day 5: Expensive Reward"
+      lore:
+        - "&7Claimed for logging in 5 consecutive days."
+        - "&6+750 Coins"
+  7: # Day 7 (end of the week)
+    commands:
+      - "eco give %player% 1000"
+      - "crate give %player% common 1"
+    display:
+      name: "&bDay 7: Weekly Reward"
+      lore:
+        - "&7A full week of logging in!"
+        - "&6+1000 Coins"
+        - "&e+1 Common Key"

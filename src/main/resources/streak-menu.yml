@@ -1,0 +1,66 @@
+# --- Streak Menu Configuration ---
+title: "&8Login Streak"
+rows: 4
+
+# Slots where the streak rewards will be displayed. Must match in amount.
+# Here are 7 slots, to display a full week.
+reward_slots:
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+
+# --- Menu Items ---
+
+# Filler item for empty slots
+filler_item:
+  material: STAINED_GLASS_PANE:15
+  name: " "
+
+# Appearance of the reward items.
+# Available placeholders: {day}, {reward_name}, {reward_lore}
+reward_item:
+  # When the player can claim the reward
+  claimable:
+    material: STAINED_GLASS_PANE:4 # Yellow
+    name: "&eDay {day} Reward! &a(Click to claim)"
+    lore:
+      - "&7Congratulations on keeping your streak!"
+      - ""
+      - "{reward_lore}"
+  # When the player has already claimed the reward
+  claimed:
+    material: STAINED_GLASS_PANE:5 # Lime
+    name: "&aDay {day} - Claimed"
+    lore:
+      - "&7You have already claimed this reward."
+      - ""
+      - "{reward_lore}"
+  # When the player hasn’t reached this day in their streak yet
+  locked:
+    material: STAINED_GLASS_PANE:14 # Red
+    name: "&cDay {day} - Locked"
+    lore:
+      - "&7Log in tomorrow to continue"
+      - "&7progressing in your streak."
+  # If a day doesn’t have a reward configured in streaks.yml
+  unconfigured:
+    material: BARRIER
+    name: "&cDay {day}"
+    lore:
+      - "&7No reward configured"
+      - "&7for this day."
+
+# Decorative or functional items
+other_items:
+  close_button:
+    slot: 31
+    material: BARRIER
+    name: "&c&lClose"
+    lore:
+      - "&7Click to exit."
+    commands:
+      - "[close]"

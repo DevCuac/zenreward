@@ -1,0 +1,162 @@
+# Definition of available rewards
+
+rewards:
+  daily_reward:
+    type: REPEATABLE # REPEATABLE or UNIQUE
+    cooldown: "1d" # 1d (day), 7d (week), 1h (hour), 30m (minute), 15s (second)
+    permission: "rewardsystem.claim.daily" # Permission required to claim (optional)
+    display_item: # Default item if not defined in menu.yml, or for preview
+      material: DIAMOND
+      name: "&fDaily Reward"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7in 24 hours."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&6100 Coins"
+    commands:
+      - "eco give %player% 100" # If you have an economy plugin
+    messages:
+      - "%prefix%&aYou have received your daily reward!"
+
+  weekly_reward:
+    type: REPEATABLE
+    cooldown: "7d"
+    permission: "rewardsystem.claim.weekly"
+    display_item:
+      material: GOLD_BLOCK
+      name: "&fWeekly Reward"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7in 7 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&6250 Coins"
+    commands:
+      - "eco give %player% 250" # If you have an economy plugin
+    messages:
+      - "%prefix%&aYou have received your weekly reward!"
+
+  monthly_reward:
+    type: REPEATABLE
+    cooldown: "7d"
+    permission: "rewardsystem.claim.monthly"
+    display_item:
+      material: GOLD_BLOCK
+      name: "&fMonthly Reward"
+      lore:
+        - "&7You can claim this reward again"
+        - "&7in 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&6500 Coins"
+    commands:
+      - "eco give %player% 500" # If you have an economy plugin
+    messages:
+      - "%prefix%&aYou have received your monthly reward!"
+
+  welcome_reward:
+    type: UNIQUE
+    cooldown: "0s" # Cooldown doesn’t apply to UNIQUE rewards, but must always be present
+    permission: "rewardsystem.claim.starter"
+    display_item:
+      material: MINECART
+      name: "&fWelcome Reward"
+      lore:
+        - "&7You can only claim this reward"
+        - "&7the first time you join the server."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&6250 Coins"
+    commands:
+      - "eco give %player% 250" # If you have an economy plugin
+    messages:
+      - "%prefix%&aYou have received your Welcome Reward!"
+
+  vip_reward:
+    type: REPEATABLE
+    cooldown: "30d"
+    permission: "rewardsystem.claim.vip"
+    display_item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &a[VIP]"
+      lore:
+        - "&7Exclusive Reward for the rank &a[VIP]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&6250 Coins"
+        - "&8+&f1 Common Key"
+    commands:
+      - "eco give %player% 250" # If you have an economy plugin
+      - "crate give %player% common_key 1" # If you have a crates plugin
+    messages:
+      - "%prefix%&aYou have claimed the rewards for the rank &a[VIP]&a!"
+
+  vip_plus_reward:
+    type: REPEATABLE
+    cooldown: "30d"
+    permission: "rewardsystem.claim.vip_plus"
+    display_item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &a[VIP&6+&a]"
+      lore:
+        - "&7Exclusive Reward for the rank &a[VIP&6+&a]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&6500 Coins"
+        - "&8+&a1 Uncommon Key"
+    commands:
+      - "eco give %player% 500" # If you have an economy plugin
+      - "crate give %player% uncommon_key 1" # If you have a crates plugin
+    messages:
+      - "%prefix%&aYou have claimed the rewards for the rank &a[VIP&6+&a]&a!"
+
+  mvp_reward:
+    type: REPEATABLE
+    cooldown: "30d"
+    permission: "rewardsystem.claim.mvp"
+    display_item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &b[MVP]"
+      lore:
+        - "&7Exclusive Reward for the rank &b[MVP]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&6750 Coins"
+        - "&8+&91 Rare Key"
+    commands:
+      - "eco give %player% 750" # If you have an economy plugin
+      - "crate give %player% rare_key 1" # If you have a crates plugin
+    messages:
+      - "%prefix%&aYou have claimed the rewards for the rank &b[MVP]&a!"
+
+  mvp_plus_reward:
+    type: REPEATABLE
+    cooldown: "30d"
+    permission: "rewardsystem.claim.mvp_plus"
+    display_item:
+      material: GLASS_BOTTLE
+      name: "&fMonthly Reward &b[MVP&c+&b]"
+      lore:
+        - "&7Exclusive Reward for the rank &b[MVP&c+&b]"
+        - "&7"
+        - "&7You can claim this reward again"
+        - "&7every 30 days."
+        - "&7"
+        - "&7Rewards:"
+        - "&8+&61000 Coins"
+        - "&8+&51 Epic Key"
+    commands:
+      - "eco give %player% 1000" # If you have an economy plugin
+      - "crate give %player% epic_key 1" # If you have a crates plugin
+    messages:
+      - "%prefix%&aYou have claimed the rewards for the rank &b[MVP&c+&b]&a!"

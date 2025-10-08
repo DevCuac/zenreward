@@ -1,0 +1,57 @@
+# General configuration of ZenRewards
+prefix: "&e&lZenRewards &8» &r"
+
+# System messages
+messages:
+  no-permission: "%prefix%&cYou don't have permission to execute this command."
+  player-only-command: "&cThis command can only be executed by a player." # New
+  reload-success: "%prefix%&aZenRewards configuration has been reloaded!"
+  player-not-found: "%prefix%&cPlayer not found."
+  reward-reset: "%prefix%&aYou have reset the reward '&e{reward}&a' for {player}."
+  all-rewards-reset: "%prefix%&aYou have reset all rewards for {player}."
+  reward-not-found: "%prefix%&cThe reward '{reward}' does not exist."
+  autoclaim-summary: "%prefix%&aYou have automatically claimed &e{count} &arewards."
+
+  # Messages for option buttons
+  notifications-on: "%prefix%&aYou have enabled reward notifications."
+  notifications-off: "%prefix%&cYou have disabled reward notifications."
+  autoclaim-on: "%prefix%&aYou have enabled auto-claim for rewards."
+  autoclaim-off: "%prefix%&cYou have disabled auto-claim for rewards."
+
+  # Message when joining the server
+  join-notification: "%prefix%&eYou have rewards &a%zenrewards_claimable_count% &eavailable to claim! Use &a/rewards&e."
+
+  # Claim messages
+  reward-no-permission: "%prefix%&cYou don't have permission to claim this reward."
+  reward-on-cooldown: "%prefix%&cThis reward is still on cooldown."
+  reward-unique-claimed: "%prefix%&cYou have already claimed this unique reward."
+
+  # Help messages for admin commands
+  admin-help-header: "&6--- ZenRewards Admin Commands ---"
+  admin-help-reload: "&e/zr reload &7- Reloads the configuration files."
+  admin-help-reset: "&e/zr reset <player> <id|all> &7- Resets rewards."
+  admin-usage-reset: "%prefix%&cUsage: /zr reset <player> <reward_id|all>"
+
+# Texts for the %status% variable in the menu
+reward-status:
+  available: "&aClaimable"
+  cooldown: "&eCooldown"
+  claimed: "&aClaimed"
+  no_permission: "&cLocked"
+
+# Texts for variables used in menus (e.g. %player_notify_status%)
+menu-variables:
+  status-enabled: "&aActivated"
+  status-disabled: "&cDisabled"
+
+placeholder-outputs:
+  ready: "&aReady"
+  claimed: "&cClaimed"
+  invalid_reward: "&cInvalid Reward"
+
+# Plugin sounds
+sounds:
+  success: "LEVEL_UP:1.0:1.2"
+  fail: "VILLAGER_NO:1.0:1.0"
+  open: "CHEST_OPEN:1.0:1.0"
+  notify: "ORB_PICKUP:1.0:1.5"

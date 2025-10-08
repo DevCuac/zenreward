@@ -1,0 +1,28 @@
+name: ZenRewards
+version: 1.4
+main: com.cuac_xd.zenrewards.ZenRewards
+author: cuac_xd
+api-version: 1.13
+depend: [Rtag]
+
+commands:
+  rewards:
+    description: Opens the rewards menu.
+    usage: /rewards
+    aliases: [recompensa, reward, recompensas]
+  zenrewards:
+    description: Admin commands for ZenRewards.
+    usage: /zenrewards <reload|reset>
+    aliases: [zr]
+  streak:
+    description: Opens the connection streak menu.
+    usage: /streak
+    aliases: [racha]
+
+permissions:
+  zenrewards.admin:
+    description: Access to admin commands like /zr reload and /zr reset.
+    default: op
+  zenrewards.use:
+    description: Allows the user to open the /rewards menu.
+    default: true
