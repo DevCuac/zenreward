@@ -1,10 +1,12 @@
 package com.cuac_xd.zenrewards.utils;
 
-import com.cryptomorin.xseries.XMaterial;
-import com.saicone.rtag.RtagItem;
+import com.cuac_xd.zenrewards.ZenRewards;
+import com.cuac_xd.zenrewards.api.VersionAdapter;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,12 +25,19 @@ public class ItemBuilder {
 
     public ItemStack build() {
         String materialName = section.getString("material", "STONE");
-        ItemStack item = XMaterial.matchXMaterial(materialName)
-                .orElse(XMaterial.STONE)
-                .parseItem();
+        byte data = (byte) section.getInt("data", 0);
 
+        VersionAdapter versionAdapter = ZenRewards.getInstance().getVersionAdapter();
+
+        // 1. Crear siempre el item base (en blanco si es una cabeza)
+        ItemStack item = versionAdapter.createItemStack(materialName, data);
         ItemMeta meta = item.getItemMeta();
 
+        if (meta == null) {
+            return item; // No se puede modificar
+        }
+
+        // 2. Aplicar nombre y lore
         String name = section.getString("name");
         if (name != null) {
             if (namePlaceholder != null) name = name.replace(namePlaceholder, nameReplacement);
@@ -44,21 +53,13 @@ public class ItemBuilder {
                     })
                     .collect(Collectors.toList()));
         }
+
+        // 3. Intentar aplicar la textura (el adaptador decidirá si es posible)
+        String texture = section.getString("head-texture-value");
+        versionAdapter.applyTexture(meta, texture);
+
+        // 4. Aplicar la metadata final al item
         item.setItemMeta(meta);
-
-        // --- INICIO DE LA IMPLEMENTACIÓN FINAL Y CORRECTA CON RTAG ---
-        if (item.getType() == XMaterial.PLAYER_HEAD.parseMaterial() && section.contains("head-texture-value")) {
-            RtagItem rtagItem = new RtagItem(item);
-
-            // --- LÍNEA CORREGIDA SEGÚN LA DOCUMENTACIÓN OFICIAL ---
-            // Usamos el método .setSkull() directamente sobre el objeto RtagItem.
-            rtagItem.setSkull(section.getString("head-texture-value"));
-
-            // Devolvemos el ítem ya modificado por la API.
-            return rtagItem.getItem();
-        }
-        // --- FIN DE LA IMPLEMENTACIÓN ---
-
         return item;
     }
 }
