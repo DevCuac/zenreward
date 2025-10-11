@@ -1,6 +1,7 @@
 package com.cuac_xd.zenrewards.api;
 
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public interface VersionAdapter {
 
@@ -19,7 +20,7 @@ public interface VersionAdapter {
      * @param meta El ItemMeta (debe ser SkullMeta).
      * @param base64Texture La textura en formato Base64.
      */
-    void applyTexture(org.bukkit.inventory.meta.ItemMeta meta, String base64Texture);
+    void applyTexture(ItemMeta meta, String base64Texture);
 
 
 
