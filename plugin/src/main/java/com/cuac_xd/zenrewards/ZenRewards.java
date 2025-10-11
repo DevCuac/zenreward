@@ -1,18 +1,18 @@
 package com.cuac_xd.zenrewards;
 
-import com.cuac_xd.zenrewards.commands.StreakCommand;
-import com.cuac_xd.zenrewards.managers.StreakMenuManager;
-import com.cuac_xd.zenrewards.placeholders.PAPIExpansion;
-import com.cuac_xd.zenrewards.managers.StreakManager;
-import com.cuac_xd.zenrewards.listeners.InventoryCloseListener;
+import com.cuac_xd.zenrewards.adapters.LegacyAdapter;
+import com.cuac_xd.zenrewards.adapters.ModernAdapter;
+import com.cuac_xd.zenrewards.api.VersionAdapter;
 import com.cuac_xd.zenrewards.commands.RewardsCommand;
+import com.cuac_xd.zenrewards.commands.StreakCommand;
 import com.cuac_xd.zenrewards.commands.ZenRewardsAdminCommand;
 import com.cuac_xd.zenrewards.configuration.ConfigManager;
 import com.cuac_xd.zenrewards.listeners.InventoryClickListener;
+import com.cuac_xd.zenrewards.listeners.InventoryCloseListener;
 import com.cuac_xd.zenrewards.listeners.PlayerJoinListener;
-import com.cuac_xd.zenrewards.managers.MenuManager;
-import com.cuac_xd.zenrewards.managers.PlayerDataManager;
-import com.cuac_xd.zenrewards.managers.RewardManager;
+import com.cuac_xd.zenrewards.managers.*;
+import com.cuac_xd.zenrewards.placeholders.PAPIExpansion;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ZenRewards extends JavaPlugin {
@@ -24,11 +24,14 @@ public class ZenRewards extends JavaPlugin {
     private PlayerDataManager playerDataManager;
     private RewardManager rewardManager;
     private MenuManager menuManager;
+    private VersionAdapter versionAdapter;
     private boolean papiEnabled = false;
 
     @Override
     public void onEnable() {
         instance = this;
+
+        setupVersionAdapter();
 
         // 1. Cargar configuraciones
         this.configManager = new ConfigManager(this);
@@ -47,6 +50,7 @@ public class ZenRewards extends JavaPlugin {
             getLogger().info("Successfully hooked into PlaceholderAPI!");
             papiEnabled = true;
         }
+
         // 4. Registrar comandos
         getCommand("streak").setExecutor(new StreakCommand(this));
         getCommand("rewards").setExecutor(new RewardsCommand(this));
@@ -58,6 +62,23 @@ public class ZenRewards extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InventoryCloseListener(this), this);
 
         getLogger().info("ZenRewards has been enabled successfully!");
+    }
+
+    private void setupVersionAdapter() {
+        try {
+            String versionString = Bukkit.getBukkitVersion().split("-")[0];
+            int minorVersion = Integer.parseInt(versionString.split("\\.")[1]);
+
+            if (minorVersion < 13) {
+                this.versionAdapter = new LegacyAdapter();
+            } else {
+                this.versionAdapter = new ModernAdapter();
+            }
+        } catch (Exception e) {
+            getLogger().severe("Could not determine server version! Defaulting to ModernAdapter.");
+            e.printStackTrace();
+            this.versionAdapter = new ModernAdapter();
+        }
     }
 
     @Override
@@ -77,6 +98,7 @@ public class ZenRewards extends JavaPlugin {
     public RewardManager getRewardManager() { return rewardManager; }
     public MenuManager getMenuManager() { return menuManager; }
     public StreakMenuManager getStreakMenuManager() { return streakMenuManager; }
+    public VersionAdapter getVersionAdapter() { return versionAdapter; }
     public boolean isPapiEnabled() {
         return papiEnabled;
     }
