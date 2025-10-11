@@ -52,13 +52,6 @@
             <version>10.0.0</version>
             <scope>compile</scope> <!-- Se incluye con shade -->
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.36</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 
     <build>
