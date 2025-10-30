@@ -1,8 +1,8 @@
 name: ZenRewards
-version: 2.0
+version: ${project.version}
 main: com.cuac_xd.zenrewards.ZenRewards
 author: cuac_xd
-api-version: 1.21
+api-version: 1.13
 
 commands:
   rewards:
