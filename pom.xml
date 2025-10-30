@@ -5,7 +5,7 @@
 
     <groupId>com.cuac_xd</groupId>
     <artifactId>ZenRewards-parent</artifactId>
-    <version>2.0</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>ZenRewards-Parent</name>
@@ -17,7 +17,9 @@
         <module>plugin</module>
     </modules>
 
+    <!-- Colocar solo aquí la versión del plugin -->
     <properties>
+        <revision>2.1</revision>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

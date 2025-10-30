@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.cuac_xd</groupId>
         <artifactId>ZenRewards-parent</artifactId>
-        <version>2.0</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>adapter-modern</artifactId>
